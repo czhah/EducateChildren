@@ -1,7 +1,6 @@
 package com.zzmeng.common.mvp
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,9 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 
-abstract class BaseFragment<IPresenter>(t: com.zzmeng.common.mvp.IPresenter) : Fragment(), IView, IActivity {
+open abstract class BaseFragment<P : IPresenter> : Fragment(), IView, IActivity {
 
-    protected var mPresenter = t
+    protected var mPresenter: P? = null
+
     protected var mContext: Context? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,11 +74,6 @@ abstract class BaseFragment<IPresenter>(t: com.zzmeng.common.mvp.IPresenter) : F
     override fun onStop() {
         super.onStop()
         mPresenter?.onStop()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        mPresenter?.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onDestroy() {

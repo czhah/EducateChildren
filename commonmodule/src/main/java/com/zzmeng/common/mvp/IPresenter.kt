@@ -14,8 +14,6 @@ interface IPresenter {
 
     fun onStop()
 
-    fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?)
-
     fun onDestroy()
 
 }

@@ -1,9 +1,8 @@
 package com.zzmeng.common.mvp
 
-import android.content.Context
 import android.content.Intent
 
-class BasePresenter(protected var mContext: Context?, protected var mView: IView?) : IPresenter {
+open class BasePresenter<M : IModel, V : IView>(protected var mModel: M?, protected var mView: V?) : IPresenter {
 
     override fun initData(intent: Intent) {
     }
@@ -20,11 +19,9 @@ class BasePresenter(protected var mContext: Context?, protected var mView: IView
     override fun onStop() {
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
-    }
-
     override fun onDestroy() {
-        mContext = null
+        mModel?.onDestroy()
+        mModel = null
         mView = null
     }
 }

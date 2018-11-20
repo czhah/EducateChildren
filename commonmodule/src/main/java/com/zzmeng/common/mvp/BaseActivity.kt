@@ -1,23 +1,25 @@
 package com.zzmeng.common.mvp
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Toast
 
-abstract class BaseActivity<IPresenter>(t: com.zzmeng.common.mvp.IPresenter) : AppCompatActivity(), IView, IActivity {
+open abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView, IActivity {
 
-    protected var mPresenter = t
+    protected var mPresenter: P? = null
+
     protected var mContext: Context? = null
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
         mContext = this
-
+        Log.i("cz", "onCreate:")
         val layoutId = initContentView()
         try {
+            Log.i("cz", "setContentView:")
             setContentView(layoutId)
             val titleId = initTitle()
             updateTitle(getString(titleId!!))
@@ -25,7 +27,9 @@ abstract class BaseActivity<IPresenter>(t: com.zzmeng.common.mvp.IPresenter) : A
             initData(savedInstanceState)
         } catch (e: Exception) {
             e.printStackTrace()
+            Log.i("cz", "error:" + e.toString())
         }
+
     }
 
     private fun updateTitle(title: String?) {
@@ -72,14 +76,10 @@ abstract class BaseActivity<IPresenter>(t: com.zzmeng.common.mvp.IPresenter) : A
         mPresenter?.onStop()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        mPresenter?.onActivityResult(requestCode, resultCode, data)
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         mPresenter?.onDestroy()
+        mPresenter = null
         mContext = null
     }
 }
