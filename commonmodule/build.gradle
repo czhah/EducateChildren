@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -42,8 +43,9 @@ dependencies {
     implementation rootProject.ext.dependencies.okhttp3_logging
     api rootProject.ext.dependencies.glide
     api rootProject.ext.dependencies.glide_transformations
+    api rootProject.ext.dependencies.glide_compiler
     implementation rootProject.ext.dependencies.room_runtime
-    annotationProcessor rootProject.ext.dependencies.room_compiler
+    implementation rootProject.ext.dependencies.room_compiler
     implementation rootProject.ext.dependencies.room_rxjava2
 }
 

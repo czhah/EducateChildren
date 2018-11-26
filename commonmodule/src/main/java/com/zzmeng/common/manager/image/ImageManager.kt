@@ -1,7 +1,6 @@
 package com.zzmeng.common.manager.image
 
 import android.content.Context
-import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.request.RequestOptions
 
@@ -11,7 +10,6 @@ class ImageManager private constructor() : IImageListener {
     private var imageManager: IImageListener? = null
 
     init {
-        Log.i("cz", "init")
         this.imageManager = GlideManager()
     }
 
@@ -25,5 +23,13 @@ class ImageManager private constructor() : IImageListener {
 
     override fun load(context: Context, imageView: ImageView, path: String, options: RequestOptions) {
         imageManager?.load(context, imageView, path, options)
+    }
+
+    override fun load(context: Context, path: String, options: RequestOptions, listener: IDownloadListener?) {
+        imageManager?.load(context, path, options, listener)
+    }
+
+    override fun load(context: Context, imageView: ImageView, path: String, isGif: Boolean, options: RequestOptions) {
+        imageManager?.load(context, imageView, path, isGif, options)
     }
 }

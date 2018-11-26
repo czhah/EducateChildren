@@ -2,7 +2,6 @@ package com.zzmeng.common.mvp
 
 import android.content.Context
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
@@ -13,8 +12,8 @@ open abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView, I
 
     protected var mContext: Context? = null
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         mContext = this
         Log.i("cz", "onCreate:")
         val layoutId = initContentView()
@@ -22,14 +21,14 @@ open abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView, I
             Log.i("cz", "setContentView:")
             setContentView(layoutId)
             val titleId = initTitle()
-            updateTitle(getString(titleId!!))
+            if (titleId != 0)
+                updateTitle(getString(titleId!!))
             initComponent()
             initData(savedInstanceState)
         } catch (e: Exception) {
             e.printStackTrace()
             Log.i("cz", "error:" + e.toString())
         }
-
     }
 
     private fun updateTitle(title: String?) {

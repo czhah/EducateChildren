@@ -16,7 +16,9 @@ class ImageOptions private constructor() {
     private var radius: Int = -1
 
     companion object {
-        var OPTIONS: ImageOptions = ImageOptions()
+        fun getInstance(): ImageOptions {
+            return ImageOptions()
+        }
     }
 
     fun placeholder(resId: Int): ImageOptions {
@@ -55,11 +57,6 @@ class ImageOptions private constructor() {
         return this
     }
 
-    fun getLoadingRes(): Int {
-        return this.loadingId
-    }
-
-
     //  加载中图片、加载失败图片、图片大小、是否缓存、加载gif、获取bitmap(下载)、圆角、圆形
     fun build(): RequestOptions {
         val options: RequestOptions = when {
@@ -71,7 +68,6 @@ class ImageOptions private constructor() {
             else -> RequestOptions()
         }
         options.diskCacheStrategy(if (isCache) DiskCacheStrategy.RESOURCE else DiskCacheStrategy.NONE)
-                .override(width, height)
                 .skipMemoryCache(true)
         if (width != -1 && height != -1) //图片大小
             options.override(width, height)
