@@ -79,4 +79,13 @@ class ImageOptions private constructor() {
             options.placeholder(loadingId)
         return options
     }
+
+    fun buildDefault(): RequestOptions {
+        return RequestOptions()
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .skipMemoryCache(true)
+                .dontAnimate()
+//                .error()
+//                .placeholder()
+    }
 }

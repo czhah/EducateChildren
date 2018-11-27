@@ -3,7 +3,7 @@
     package="com.zzmeng.common">
 
     <application>
-        <activity android:name=".ui.activity.TestActivity"></activity>
+        <activity android:name=".ui.activity.TestActivity" />
     </application>
 
 </manifest>

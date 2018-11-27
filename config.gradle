@@ -1,17 +1,17 @@
 ext {
     android = [
-            compileSdkVersion: 28,
-            buildToolsVersion: "28.0.1",
+            compileSdkVersion: 27,
+            buildToolsVersion: "27.0.1",
             minSdkVersion    : 19,
-            targetSdkVersion : 28,
+            targetSdkVersion : 27,
             versionCode      : 1,
             versionName      : "v1.0.0",
 
-            supportLibraryVersion : "26.1.0",
+            supportLibraryVersion : "27.1.0",
             constraint: "1.1.3",
             retrofit2: "2.3.0",
             okhttp3: "3.12.0",
-            room: "1.1.0",
+            room: "1.0.0",
 
     ]
 
@@ -31,12 +31,13 @@ ext {
             rxpermissions        : 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar',
             okhttp3              : "com.squareup.okhttp3:okhttp:$android.okhttp3",
             okhttp3_logging      : "com.squareup.okhttp3:logging-interceptor:$android.okhttp3",
-            glide                : 'com.github.bumptech.glide:glide:4.6.0',
-            glide_transformations: 'jp.wasabeef:glide-transformations:3.0.1',
-            glide_compiler: 'com.github.bumptech.glide:compiler:4.6.0',
+            glide                : 'com.github.bumptech.glide:glide:4.6.1',
+            glide_compiler: 'com.github.bumptech.glide:compiler:4.6.1',
+            glide_transformations: 'jp.wasabeef:glide-transformations:3.1.0',
             room_runtime         : "android.arch.persistence.room:runtime:$android.room",
             room_compiler        : "android.arch.persistence.room:compiler:$android.room",
             room_rxjava2         : "android.arch.persistence.room:rxjava2:$android.room",
             multidex             : 'com.android.support:multidex:1.0.1',
+            fastJson             : 'com.alibaba:fastjson:1.1.70.android',
     ]
 }

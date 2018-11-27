@@ -19,7 +19,7 @@ open abstract class BaseFragment<P : IPresenter> : Fragment(), IView, IActivity 
         mContext = context
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layoutId = initContentView()
         try {
             inflater?.inflate(layoutId, container)
@@ -30,6 +30,11 @@ open abstract class BaseFragment<P : IPresenter> : Fragment(), IView, IActivity 
         }
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
+//    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+//        return super.onCreateView(inflater!!, container, savedInstanceState)
+//    }
 
     override fun initTitle(): Int? {
         return null
@@ -49,7 +54,7 @@ open abstract class BaseFragment<P : IPresenter> : Fragment(), IView, IActivity 
     }
 
     override fun showMessage(message: String) {
-        activity.runOnUiThread { Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show() }
+        activity!!.runOnUiThread { Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show() }
     }
 
     override fun showMessage(resId: Int) {

@@ -5,9 +5,14 @@ import android.app.Application
 /**
  * Applicateion基类
  */
-class BaseApplication : Application() {
+open class BaseApplication : Application() {
+
+    companion object {
+        var INSTANCE: Application? = null
+    }
 
     override fun onCreate() {
         super.onCreate()
+        BaseApplication.INSTANCE = this
     }
 }

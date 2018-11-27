@@ -12,7 +12,6 @@ object HttpURL {
 
     const val BASE_URL = IPPORT + PROJECT
 
-
     const val UPLOAD_FILE = BASE_URL + "file/upload.shtml" //上传文件
 
     const val GET_SENDCODE = BASE_URL + "user/sendCode" //获取验证码
