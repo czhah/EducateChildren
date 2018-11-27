@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">CommonModule</string>
+
+    <string name="error_request_failed">服务器开小差了，请稍后重试! </string>
+    <string name="error_request_0">服务器开小差了，请稍后重试!</string>
+    <string name="error_request_8001">超出范围</string>
+    <string name="error_request_8002">未到达景点</string>
+    <string name="error_request_8003">连续操作</string>
+    <string name="error_request_9000">服务器开小差了，请稍后重试!</string>
+    <string name="error_request_9001">记录已存在</string>
+    <string name="error_request_9002">记录不存在</string>
+    <string name="error_request_9003">小于</string>
+    <string name="error_request_9004">操作失败</string>
+    <string name="error_request_9005">参数不能为空</string>
+    <string name="error_request_9006">非法参数</string>
+    <string name="error_request_9007">验证失败</string>
+    <string name="error_request_9008">未授权</string>
+    <string name="error_request_9009">小于等于</string>
+    <string name="error_request_9010">大于</string>
+    <string name="error_request_9011">大于等于</string>
+    <string name="error_request_9012">已失效</string>
+    <string name="error_request_9051">翻译失败</string>
+    <string name="error_request_9052">翻译语种错误</string>
+    <string name="error_request_9053">语音识别，说话不标准</string>
+    <string name="error_request_9100">您操作的太频繁, 请稍后再试!</string>
+
+    <string name="error_network">网络开小差了, 请稍后重试</string>
 </resources>
