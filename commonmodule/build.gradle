@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rootProject.ext.dependencies.appcompatV7
+    implementation rootProject.ext.dependencies.constraint
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation rootProject.ext.dependencies.retrofit2
+    implementation rootProject.ext.dependencies.retrofit2_gson
+    implementation rootProject.ext.dependencies.retrofit2_rxjava2
+    implementation rootProject.ext.dependencies.persistentCookieJar
+    implementation rootProject.ext.dependencies.rxjava2
+    implementation rootProject.ext.dependencies.rxjava2_rxandroid
+    implementation rootProject.ext.dependencies.rxpermissions
+    implementation rootProject.ext.dependencies.okhttp3
+    implementation rootProject.ext.dependencies.okhttp3_logging
+    api rootProject.ext.dependencies.glide
+    api rootProject.ext.dependencies.glide_transformations
+    api rootProject.ext.dependencies.glide_compiler
+    implementation rootProject.ext.dependencies.room_runtime
+    implementation rootProject.ext.dependencies.room_compiler
+    implementation rootProject.ext.dependencies.room_rxjava2
+}
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
